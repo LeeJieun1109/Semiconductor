@@ -6,9 +6,10 @@
     <title>Semiconductor Engineering Portfolio</title>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
     <style>
-        /* 모든 요소에 프리텐다드 글꼴 적용 */
+        /* 모든 요소 프리텐다드 적용 */
         * {
             font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+            box-sizing: border-box;
         }
 
         body, html {
@@ -18,13 +19,13 @@
             scroll-behavior: smooth;
         }
 
-        /* 1. 내비게이션 바: 두께 두껍게 (#495464) */
+        /* 내비게이션 바 (#495464) */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 80px; /* 두께를 조금 더 두껍게 설정 */
+            height: 80px; 
             background-color: #495464; 
             display: flex;
             align-items: center;
@@ -32,26 +33,25 @@
             border-bottom: 0.5px solid rgba(244, 244, 242, 0.2);
         }
 
-        /* 내비게이션 텍스트: 기존의 80% 크기, 얇은 두께 */
+        /* 내비게이션 텍스트 (1.2rem, 얇게) */
         .navbar-item {
             position: absolute;
             color: #f4f4f2; 
             text-decoration: none;
-            font-size: 1.2rem; /* 1.5rem의 80% 수준 */
-            font-weight: 300; /* 더 얇게 설정 */
+            font-size: 1.2rem; 
+            font-weight: 300; 
             transition: transform 0.3s ease;
             white-space: nowrap;
             display: inline-block;
             text-align: center;
-            width: 100px; /* 고정 너비를 주어 텍스트 팽창 시 밀림 방지 */
+            width: 100px;
         }
 
-        /* 마우스 오버: 10%만 커짐 (밀림 방지를 위해 transform만 사용) */
         .navbar-item:hover {
             transform: translateX(-50%) scale(1.1);
         }
 
-        /* 위치 지정 (1/6 지점들) */
+        /* 위치 지정 */
         .nav-1 { left: 16.66%; transform: translateX(-50%); }
         .nav-2 { left: 33.33%; transform: translateX(-50%); }
         .nav-3 { left: 50.00%; transform: translateX(-50%); }
@@ -66,10 +66,8 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            box-sizing: border-box;
         }
 
-        /* 배경색 변경 */
         .bg-gray { background-color: #495464; color: #f4f4f2; }
         .bg-white { background-color: #f4f4f2; color: #495464; }
 
@@ -105,35 +103,28 @@
             text-align: center;
         }
 
-        .round-card:hover {
-            transform: scale(1.05);
-        }
+        .round-card:hover { transform: scale(1.05); }
+        .round-card span { color: #f4f4f2; font-size: 1.5rem; font-weight: bold; }
 
-        .round-card span {
-            color: #f4f4f2;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        /* 2. 하단 정보 영역: 높이 절반(33.3vh), 색상 #e8e8e8 */
+        /* 하단 정보 영역 (#e8e8e8, 높이 33.3vh) */
         .footer-info {
             width: 100%;
-            height: 33.3vh; /* 기존 66.6vh의 절반 */
+            height: 33.3vh;
             background-color: #e8e8e8;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        /* 3. 푸터 텍스트: 크기 300% 키움, 회색(#495464) */
+        /* 푸터 텍스트: 내비게이션 바와 동일한 크기(1.2rem), 회색 */
         .footer-table {
-            width: 90%;
+            width: 85%;
             display: flex;
             justify-content: space-between;
-            color: #495464; /* 검은색에서 회색으로 변경 */
-            font-size: 2.7rem; /* 기존 0.9rem의 300% */
+            color: #495464; 
+            font-size: 1.2rem; /* 내비게이션 바 텍스트와 동일하게 수정 */
             text-align: center;
-            font-weight: 600;
+            font-weight: 400;
         }
 
         .footer-item { flex: 1; }
