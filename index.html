@@ -6,42 +6,49 @@
     <title>Semiconductor Engineering Portfolio</title>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
     <style>
-        /* 기본 설정 */
+        /* 모든 요소에 프리텐다드 글꼴 적용 */
+        * {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+        }
+
         body, html {
             margin: 0;
             padding: 0;
             width: 100%;
-            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
             scroll-behavior: smooth;
         }
 
-        /* 내비게이션 바 */
+        /* 1. 내비게이션 바: 두께 두껍게 (#495464) */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 60px;
-            background-color: #495057; /* 회색 */
+            height: 80px; /* 두께를 조금 더 두껍게 설정 */
+            background-color: #495464; 
             display: flex;
             align-items: center;
             z-index: 1000;
-            border-bottom: 0.5px solid rgba(248, 249, 250, 0.2); /* 얇은 흰색 선 */
+            border-bottom: 0.5px solid rgba(244, 244, 242, 0.2);
         }
 
+        /* 내비게이션 텍스트: 기존의 80% 크기, 얇은 두께 */
         .navbar-item {
             position: absolute;
-            color: #f8f9fa; /* 흰색 */
+            color: #f4f4f2; 
             text-decoration: none;
-            font-size: 1.5rem; /* 기존 Portfolio 크기 */
-            font-weight: bold;
+            font-size: 1.2rem; /* 1.5rem의 80% 수준 */
+            font-weight: 300; /* 더 얇게 설정 */
             transition: transform 0.3s ease;
             white-space: nowrap;
+            display: inline-block;
+            text-align: center;
+            width: 100px; /* 고정 너비를 주어 텍스트 팽창 시 밀림 방지 */
         }
 
-        /* 마우스 올리면 10% 커짐 */
+        /* 마우스 오버: 10%만 커짐 (밀림 방지를 위해 transform만 사용) */
         .navbar-item:hover {
-            transform: scale(1.1);
+            transform: translateX(-50%) scale(1.1);
         }
 
         /* 위치 지정 (1/6 지점들) */
@@ -54,7 +61,7 @@
         /* 섹션 공통 */
         section {
             width: 100%;
-            height: 100vh; /* 화면 꽉 차게 */
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -62,34 +69,33 @@
             box-sizing: border-box;
         }
 
-        /* 회색 배경 섹션 (1, 3번째) */
-        .bg-gray { background-color: #495057; color: #f8f9fa; }
-        /* 흰색 배경 섹션 (2, 4번째) */
-        .bg-white { background-color: #f8f9fa; color: #495057; }
+        /* 배경색 변경 */
+        .bg-gray { background-color: #495464; color: #f4f4f2; }
+        .bg-white { background-color: #f4f4f2; color: #495464; }
 
-        /* 메인 제목 (첫 번째 섹션) */
+        /* 메인 제목 */
         .main-title-container { text-align: center; }
         .main-title-en { font-size: 4.5rem; margin: 0; font-weight: 800; }
         .main-title-ko { 
-            font-size: 2.7rem; /* 4.5 * 0.6 = 2.7 (5분의 3) */
+            font-size: 2.7rem; 
             margin-top: 1rem; 
             font-weight: 400;
         }
 
-        /* 1x4 사각형 카드 레이아웃 (두 번째 섹션) */
+        /* 카드 레이아웃 */
         .card-container {
             display: flex;
             justify-content: center;
-            gap: 30px; /* 사각형 사이 여백 */
-            width: 90%; /* 양 끝 여백 확보 */
+            gap: 30px;
+            width: 90%;
             max-width: 1200px;
         }
 
         .round-card {
             flex: 1;
             height: 250px;
-            background-color: #495057; /* 회색 */
-            border-radius: 30px; /* 라운드 사각형 */
+            background-color: #495464;
+            border-radius: 30px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -100,32 +106,34 @@
         }
 
         .round-card:hover {
-            transform: scale(1.05); /* 약간 커짐 */
+            transform: scale(1.05);
         }
 
         .round-card span {
-            color: #f8f9fa; /* 흰색 */
+            color: #f4f4f2;
             font-size: 1.5rem;
             font-weight: bold;
         }
 
-        /* 하단 정보 영역 (#adb5bd) */
+        /* 2. 하단 정보 영역: 높이 절반(33.3vh), 색상 #e8e8e8 */
         .footer-info {
             width: 100%;
-            height: 66.6vh; /* 100vh의 3분의 2 */
-            background-color: #adb5bd;
+            height: 33.3vh; /* 기존 66.6vh의 절반 */
+            background-color: #e8e8e8;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
+        /* 3. 푸터 텍스트: 크기 300% 키움, 회색(#495464) */
         .footer-table {
-            width: 80%;
+            width: 90%;
             display: flex;
             justify-content: space-between;
-            color: black; /* 검은색 글씨 */
-            font-size: 0.9rem; /* 작은 본문 크기 */
+            color: #495464; /* 검은색에서 회색으로 변경 */
+            font-size: 2.7rem; /* 기존 0.9rem의 300% */
             text-align: center;
+            font-weight: 600;
         }
 
         .footer-item { flex: 1; }
