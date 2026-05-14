@@ -6,7 +6,6 @@
     <title>Semiconductor Engineering Portfolio</title>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
     <style>
-        /* 모든 요소 프리텐다드 적용 */
         * {
             font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
             box-sizing: border-box;
@@ -33,7 +32,6 @@
             border-bottom: 0.5px solid rgba(244, 244, 242, 0.2);
         }
 
-        /* 내비게이션 텍스트 (1.2rem) */
         .navbar-item {
             position: absolute;
             color: #f4f4f2; 
@@ -51,7 +49,6 @@
             transform: translateX(-50%) scale(1.1);
         }
 
-        /* 내비게이션 위치 지정 */
         .nav-1 { left: 16.66%; transform: translateX(-50%); }
         .nav-2 { left: 33.33%; transform: translateX(-50%); }
         .nav-3 { left: 50.00%; transform: translateX(-50%); }
@@ -75,7 +72,6 @@
         .main-title-container { text-align: center; }
         .main-title-en { font-size: 4.5rem; margin: 0; font-weight: 800; }
         .main-title-ko { 
-            /* [수정] 카드 내부 텍스트 크기인 1.5rem으로 변경 */
             font-size: 1.5rem; 
             margin-top: 1.5rem; 
             font-weight: 400;
@@ -97,6 +93,7 @@
             background-color: #495464;
             border-radius: 30px;
             display: flex;
+            flex-direction: column; /* 텍스트를 세로로 배치하기 위해 수정 */
             justify-content: center;
             align-items: center;
             text-decoration: none;
@@ -106,13 +103,25 @@
         }
 
         .round-card:hover { transform: scale(1.05); }
-        .round-card span { 
+        
+        /* 카드 내 영문 텍스트 */
+        .card-en { 
             color: #f4f4f2; 
-            font-size: 1.5rem; /* 카드 내부 텍스트 크기 */
+            font-size: 1.5rem; 
             font-weight: bold; 
+            margin: 0;
         }
 
-        /* 하단 정보 영역 (#e8e8e8, 높이 33.3vh) */
+        /* 카드 내 한글 텍스트 (영문의 3/5 크기, 약 0.9rem) */
+        .card-ko {
+            color: #f4f4f2;
+            font-size: 0.9rem;
+            font-weight: 400;
+            margin-top: 8px; /* 영문과의 간격 */
+            opacity: 0.9; /* 살짝 투명도를 주어 영문을 더 강조 */
+        }
+
+        /* 하단 정보 영역 */
         .footer-info {
             width: 100%;
             height: 33.3vh;
@@ -122,7 +131,6 @@
             align-items: center;
         }
 
-        /* [수정] 푸터 텍스트: 내비게이션 크기(1.2rem)에서 5% 축소 (약 1.14rem) */
         .footer-table {
             width: 85%;
             display: flex;
@@ -156,10 +164,22 @@
 
     <section class="bg-white">
         <div class="card-container">
-            <a href="physics.html" class="round-card"><span>Basic Physics</span></a>
-            <a href="device.html" class="round-card"><span>Semiconductor Device</span></a>
-            <a href="design.html" class="round-card"><span>Design & Simulation</span></a>
-            <a href="notes.html" class="round-card"><span>Notes</span></a>
+            <a href="physics.html" class="round-card">
+                <p class="card-en">Basic Physics</p>
+                <p class="card-ko">기초 물리</p>
+            </a>
+            <a href="device.html" class="round-card">
+                <p class="card-en">Semiconductor Device</p>
+                <p class="card-ko">반도체 소자</p>
+            </a>
+            <a href="design.html" class="round-card">
+                <p class="card-en">Design & Simulation</p>
+                <p class="card-ko">설계 및 시뮬레이션</p>
+            </a>
+            <a href="notes.html" class="round-card">
+                <p class="card-en">Notes</p>
+                <p class="card-ko">노트</p>
+            </a>
         </div>
     </section>
 
